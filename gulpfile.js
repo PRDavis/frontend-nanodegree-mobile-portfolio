@@ -108,7 +108,21 @@ var
         {
           in: source + 'views/js/*.*',
           out: dest + 'views/js/',
-        };
+        },
+
+		replace_pics_img =
+				{
+
+					in: '/Users/paulandcindy/Documents/test_images/img/' + '*',
+					out: dest + 'img/',
+
+				},
+
+		replace_pics_images =
+				{
+					in: '/Users/paulandcindy/Documents/test_images/images/' + '*',
+					out: dest + 'views/'+'images/',
+				};
 
 
 
@@ -132,6 +146,34 @@ var
       		dest + '*'
       	]);
       });
+
+	//
+
+	//clean the img folder and transfer the finished pictures to the build folders
+		gulp.task('replace_pics1', function() {
+		del([
+			dest + "img/" + '*'
+		]);
+		return gulp.src(replace_pics_img.in)
+			.pipe(gulp.dest(replace_pics_img.out))
+	});
+	//clean the views/images folder and transfer the finished pictures to the build folders
+		gulp.task('replace_pics2', function() {
+		del([
+			dest + "views/" +"images/" + '*'
+		]);
+		return gulp.src(replace_pics_images.in)
+			.pipe(gulp.dest(replace_pics_images.out))
+	});
+
+	gulp.task('replace', ['replace_pics1', 'replace_pics2'], function() {
+		return;
+	});
+
+
+
+	//
+
 
       // build HTML files
       gulp.task('html', function() {

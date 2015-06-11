@@ -267,7 +267,6 @@ var
       		]);
       		return gulp.src(js.in)
       			.pipe(size({ title: 'JS in '}))
-      			.pipe(stripdebug())
       			.pipe(uglify())
       			.pipe(size({ title: 'JS out '}))
       			.pipe(gulp.dest(js.out));
@@ -289,7 +288,6 @@ var
           ]);
           return gulp.src(views_js.in)
             .pipe(size({ title: 'views_js in '}))
-            .pipe(stripdebug())
             .pipe(uglify())
             .pipe(size({ title: 'views_js out '}))
             .pipe(gulp.dest(views_js.out));

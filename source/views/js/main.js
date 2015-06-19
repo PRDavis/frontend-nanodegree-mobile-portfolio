@@ -583,7 +583,6 @@ var makeSliders = function()
   //get all of the moving pizzas and make them invisible
   // display = none has no impact on layout
   var sliderDiv = document.getElementById("movingPizzas1");
-  sliderDiv.display = "none";
   var w = screen.width;
   var h = screen.height;
   var numberOfPizzas = (Math.floor(h/s *w/s*1.2));
@@ -602,8 +601,6 @@ var makeSliders = function()
       elem.style.top = (Math.floor(j / cols) * s) + 'px';
       sliderDiv.appendChild(elem);
     }
-  // show the pizzas
-  sliderDiv.display = "block";
   updatePositions();
 };
 //made makeSliders a seperate function

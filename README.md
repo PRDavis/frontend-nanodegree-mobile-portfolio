@@ -37,13 +37,19 @@
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
-7. added a viewport meta tag
-8. changed moving pizzas from 200 to 30
-9. moved calculation out of for loop
-10. In function updatePositions():
+8. added a viewport meta tag
+9. changed moving pizzas from 200 to a number determined by the screen size
+10. moved DOM calculation out of for loop that creates pizzas
+11. In function updatePositions():
+
     A. broke the phase calculations into parts. moved the pre-phase(static part of the calculation) outside of the for loop
     B. changed style.left to style.transform
+    C. replaced document.querySelectorAll with document.getElementsByClassName
+    D. moved phase modulo calc outside the main loop  - calculations stored in phaseMod array
+12. Created seperate makeSliders() function
+13. hide backface Visibility to improve rendering
+
 
 ####Part 3: Optimize time to change pizza size with slider
-11. In function changePizzaSizes(size), moved the size/ offset determination calculations outside the for loop.
-12. changed document.querySelectorAll() to document.getElementsByClassName()
+14. In function changePizzaSizes(size), moved the size/ offset determination calculations outside the for loop.
+15. changed document.querySelector... to document.getElementsBy...
